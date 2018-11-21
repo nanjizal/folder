@@ -9,6 +9,7 @@ import format.bmp.Writer;
 import format.bmp.Tools;
 import format.gif.Writer;
 import format.gif.Tools;
+import format.jpg.Reader;
 import haxe.io.Path;
 import haxe.io.Bytes;
 import haxe.io.BytesInput;
@@ -84,6 +85,9 @@ class Folder{
                 case 'gif':
                     Sys.println( '   ' + file.name );
                     count++;
+                case 'jpg':
+                    Sys.println( '   ' + file.name );
+                    count++;
                 case _:
                     // ignore
             }
@@ -104,6 +108,8 @@ class Folder{
                     arrImgSpec.push( { fileSpec: file, pixels: getBMP( pathFile ) } );
                 case 'gif':
                     arrImgSpec.push( { fileSpec: file, pixels: getGIF( pathFile ) } );
+                case 'jpg':
+                    arrImgSpec.push( { fileSpec: file, pixels: getJPG( pathFile ) } );
                 case _:
                     // ignore
             }
@@ -121,6 +127,10 @@ class Folder{
     public
     function getGIF( pathFile: String ){
         return readGIF( loadBinary( pathFile ) );
+    }
+    public
+    function getJPG( pathFile: String ){
+        return readJPG( loadBinary( pathFile ) );
     }
     public 
     function open( fileName: String ): FileOutput {
@@ -164,6 +174,13 @@ class Folder{
         var data: format.gif.Data   = gifReader.read();
         var pixels: Pixels          = Pixels.fromGIFData( data
             , Std.random(format.gif.Tools.framesCount(data)), Std.random(2) == 0 ? true : false);
+        return pixels;
+    }
+    public
+    function readJPG( input: BytesInput ): Pixels {
+        var jpgReader               = new format.jpg.Reader( input );
+        var data: format.jpg.Data   = jpgReader.read();
+        var pixels: Pixels          = Pixels.fromBytes( data.pixels, data.width, data.height, PixelFormat.ARGB );
         return pixels;
     }
     public
