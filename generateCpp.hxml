@@ -1,0 +1,26 @@
+# lime dox flags
+-D display
+-D doc_gen
+-D lime-doc-gen
+
+-D doc-gen
+
+# can't currently generate nme dox's.
+-lib lime
+-lib format
+-lib hxPixels
+#-lib nme
+
+--macro include('folder')
+-cp src
+-main folder.upkeep.Doc
+--no-output
+
+--each
+
+--next
+-xml upkeep/cpp.xml
+-cpp foo
+
+
+# -D dump==pretty

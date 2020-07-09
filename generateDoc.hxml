@@ -1,0 +1,5 @@
+-D haxe4
+-cmd haxe generateCpp.hxml
+-cmd haxelib run dox -i upkeep --title "folder API documentation" -D themeColor 0x33CCCC -D source-path https://github.com/nanjizal/folder/tree/master/src/ --toplevel-package folder 
+-cmd cd pages
+-cmd open index.html

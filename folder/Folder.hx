@@ -9,8 +9,8 @@ import format.bmp.Writer;
 import format.bmp.Tools;
 import format.gif.Writer;
 import format.gif.Tools;
-import format.jpg.Reader;
-import haxe.io.Path;
+// import format.jpg.Reader; not implemented
+import haxe.io.Path; 
 import haxe.io.Bytes;
 import haxe.io.BytesInput;
 import hxPixels.Pixels;
@@ -141,7 +141,8 @@ class Folder{
                 case 'gif':
                     arrImgSpec.push( { fileSpec: file, pixels: getGIF( pathFile ) } );
                 case 'jpg':
-                    arrImgSpec.push( { fileSpec: file, pixels: getJPG( pathFile ) } );
+                    throw 'not implemented';
+                    //arrImgSpec.push( { fileSpec: file, pixels: getJPG( pathFile ) } );
                 case _:
                     // ignore
             }
@@ -186,10 +187,15 @@ class Folder{
      * @param pathFile
      * @return    returns pixels from jpg
      */
+    /*
     public
     function getJPG( pathFile: String ){
         return readJPG( loadBinary( pathFile ) );
     }
+    */
+    
+    
+    
     /**
      * 
      *
@@ -280,6 +286,7 @@ class Folder{
      * @param input
      * @return   pixels
      */                 
+    /*
     public
     function readJPG( input: BytesInput ): Pixels {
         var jpgReader               = new format.jpg.Reader( input );
@@ -287,6 +294,10 @@ class Folder{
         var pixels: Pixels          = Pixels.fromBytes( data.pixels, data.width, data.height, PixelFormat.ARGB );
         return pixels;
     }
+    */
+    
+    
+    
     /**
      * gets the extension of a file from a path string.
      * 
