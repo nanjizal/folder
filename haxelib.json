@@ -7,6 +7,5 @@
     "version"      : "0.0.1",
     "releasenote"  : "See https://github.com/nanjizal/folder/blob/master/CHANGELOG.md",
     "contributors" : ["Nanjizal"],
-    "classPath"    : "src",
     "dependencies" : {}
 }
