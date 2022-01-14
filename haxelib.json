@@ -1,0 +1,12 @@
+{
+    "name"         : "folder",
+    "url"          : "https://github.com/nanjizal/folder#folder",
+    "license"      : "MIT",
+    "tags"         : ["image,file" ],
+    "description"  : "for opening and closing and reading images",
+    "version"      : "0.0.1",
+    "releasenote"  : "See https://github.com/nanjizal/folder/blob/master/CHANGELOG.md",
+    "contributors" : ["Nanjizal"],
+    "classPath"    : "src",
+    "dependencies" : {}
+}
