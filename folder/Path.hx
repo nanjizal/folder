@@ -4,6 +4,7 @@ class PathInfo{
     public var path:    String = './';
     public var full:    String;
     public var parent:  String;
+    var forwardSlash: Int = 47;
     public
     function new( path_: String ){
         changePath( path_ );
@@ -15,7 +16,7 @@ class PathInfo{
         var charcode = StringTools.fastCodeAt;
         full = sys.FileSystem.fullPath( path );
         var len = full.length;
-        while( len > 0 && charcode( full, len-- ) != 47 ){}
+        while( len > 0 && charcode( full, len-- ) != fowardSlash ){}
         parent = full.substr( 0, len + 1 ) + '/';
     }
     public
